@@ -8,7 +8,7 @@
 
 <img src="images/bearchat-robot.jpg" width="50%" height="50%" />
 
-<a href="https://zhuanlan.zhihu.com/p/21399155" class="btn btn-default" target="_blank">阅读</a>
+<a href="https://1byte.io/robot-on-leanengine/" class="btn btn-default" target="_blank">阅读</a>
 
 
 <!-- shared links, DO NOT REMOVE -->
