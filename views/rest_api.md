@@ -29,8 +29,9 @@ Postman 还支持自动生成多种语言（库）调用 REST API 的代码。
 
 ### Base URL
 
-REST API 请求的 Base URL 可以在**云服务控制台 > 设置 > 应用凭证 > 服务器地址**查看。
+华北节点与华东节点的 REST API 请求的 Base URL 可以在**云服务控制台 > 设置 > 应用凭证 > 服务器地址**查看。
 
+国际版 REST API 请求的 Base URL 是：`{{first 8 digits of your App ID}}.api.lncldglobal.com`。
 ### 对象
 
 <table>
