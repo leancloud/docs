@@ -103,7 +103,7 @@
 }];
 ```
 
-你还可以查询某个排行榜的一组 `user` 的成绩：
+<!-- 你还可以查询某个排行榜的一组 `user` 的成绩：
 
 ```objc
 LCLeaderboard *leaderboard = [[LCLeaderboard alloc] initWithStatisticName:@"score"];
@@ -115,7 +115,7 @@ LCLeaderboard *leaderboard = [[LCLeaderboard alloc] initWithStatisticName:@"scor
         // 处理错误
     }
 }];
-```
+``` -->
 
 #### 用户成绩删除
 
@@ -169,7 +169,7 @@ LCLeaderboard *leaderboard = [[LCLeaderboard alloc] initWithStatisticName:@"scor
 }];
 ```
 
-你还可以查询某个排行榜的一组 `object` 的成绩：
+<!-- 你还可以查询某个排行榜的一组 `object` 的成绩：
 
 ```objc
 LCLeaderboard *leaderboard = [[LCLeaderboard alloc] initWithStatisticName:@"score"];
@@ -182,7 +182,7 @@ LCLeaderboard *leaderboard = [[LCLeaderboard alloc] initWithStatisticName:@"scor
         // 处理错误
     }
 }];
-```
+``` -->
 
 ### Entity 成绩管理
 
@@ -218,7 +218,7 @@ LCLeaderboard *leaderboard = [[LCLeaderboard alloc] initWithStatisticName:@"scor
 }];
 ```
 
-你还可以查询某个排行榜的一组 `entity` 的成绩：
+<!-- 你还可以查询某个排行榜的一组 `entity` 的成绩：
 
 ```objc
 LCLeaderboard *leaderboard = [[LCLeaderboard alloc] initWithStatisticName:@"score"];
@@ -230,7 +230,7 @@ LCLeaderboard *leaderboard = [[LCLeaderboard alloc] initWithStatisticName:@"scor
         // 处理错误
     }
 }];
-```
+``` -->
 
 ## 获取排行榜结果
 
