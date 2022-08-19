@@ -175,106 +175,107 @@ try {
 2. **调用接口发送验证短信**  
   注意，在这一步之前，我们假设开发者已经完成了前面章节提及的所有短信服务设置。
 
-  ```objc
-LCShortMessageRequestOptions *options = [[LCShortMessageRequestOptions alloc] init];
-  options.TTL = 10;                     // 验证码有效时间为 10 分钟
-  options.applicationName = @"应用名称"; // 应用名称
-  options.operation = @"某种操作";       // 操作名称
-  [LCSMS requestShortMessageForPhoneNumber:@"18200008888"
-                                  options:options
-                                  callback:^(BOOL succeeded, NSError * _Nullable error) {
-                                      if (succeeded) {
-                                          /* 请求成功 */
-                                      } else {
-                                          /* 请求失败 */
-                                      }
-                                  }];
-  ```
-  ```swift
-  let variables: LCDictionary = [
-      "ttl": LCNumber(10),         // 验证码有效时间为 10 分钟
-      "name": LCString("应用名称"), // 应用名称
-      "op": LCString("某种操作")    // 操作名称
-  ]
+    ```objc
+    LCShortMessageRequestOptions *options = [[LCShortMessageRequestOptions alloc] init];
+    options.TTL = 10;                     // 验证码有效时间为 10 分钟
+    options.applicationName = @"应用名称"; // 应用名称
+    options.operation = @"某种操作";       // 操作名称
+    [LCSMS requestShortMessageForPhoneNumber:@"18200008888"
+                                    options:options
+                                    callback:^(BOOL succeeded, NSError * _Nullable error) {
+                                        if (succeeded) {
+                                            /* 请求成功 */
+                                        } else {
+                                            /* 请求失败 */
+                                        }
+                                    }];
+    ```
+    ```swift
+    let variables: LCDictionary = [
+        "ttl": LCNumber(10),         // 验证码有效时间为 10 分钟
+        "name": LCString("应用名称"), // 应用名称
+        "op": LCString("某种操作")    // 操作名称
+    ]
 
-  _ = LCSMSClient.requestShortMessage(mobilePhoneNumber: "18200008888", variables: variables) { (result) in
-      switch result {
-      case .success:
-          break
-      case .failure(error: let error):
-          print(error)
-      }
-  }
-  ```
-  ```java
-  LCSMSOption option = new LCSMSOption();
-  option.setTtl(10);
-  option.setApplicationName("应用名称");
-  option.setOperation("某种操作");
-  LCSMS.requestSMSCodeInBackground("18200008888", option).subscribe(new Observer<LCNull>() {
-      @Override
-      public void onSubscribe(Disposable disposable) {
-      }
-      @Override
-      public void onNext(LCNull avNull) {
-          Log.d("TAG","Result: Successfully sent verification code.");
-      }
-      @Override
-      public void onError(Throwable throwable) {
-          Log.d("TAG","Result: Failed to send verification code. Reason: " + throwable.getMessage());
-      }
-      @Override
-      public void onComplete() {
-      }
-  });
-  ```
-  ```javascript
-  AV.Cloud.requestSmsCode({
-      mobilePhoneNumber: '18200008888',
-      name: '应用名称',
-      op: '某种操作',
-      ttl: 10 // 验证码有效时间为 10 分钟
-  }).then(function(){
-      // 调用成功
-  }, function(err){
-      // 调用失败
-  });
-  ```
-  ```cs
-  // 下面参数中的 10 表示验证码有效时间为 10 分钟
-LCCloud.RequestSMSCodeAsync("18200008888","应用名称","某种操作",10).ContinueWith(t =>
-  {
-      if(!t.Result)
-      {
-          // 调用成功
-      }
-  });
-  ```
-  ```php
-  $options = [
+    _ = LCSMSClient.requestShortMessage(mobilePhoneNumber: "18200008888", variables: variables) { (result) in
+        switch result {
+        case .success:
+            break
+        case .failure(error: let error):
+            print(error)
+        }
+    }
+    ```
+    ```java
+    LCSMSOption option = new LCSMSOption();
+    option.setTtl(10);
+    option.setApplicationName("应用名称");
+    option.setOperation("某种操作");
+    LCSMS.requestSMSCodeInBackground("18200008888", option).subscribe(new Observer<LCNull>() {
+        @Override
+        public void onSubscribe(Disposable disposable) {
+        }
+        @Override
+        public void onNext(LCNull avNull) {
+            Log.d("TAG","Result: Successfully sent verification code.");
+        }
+        @Override
+        public void onError(Throwable throwable) {
+            Log.d("TAG","Result: Failed to send verification code. Reason: " + throwable.getMessage());
+        }
+        @Override
+        public void onComplete() {
+        }
+    });
+    ```
+    ```javascript
+    AV.Cloud.requestSmsCode({
+        mobilePhoneNumber: '18200008888',
+        name: '应用名称',
+        op: '某种操作',
+        ttl: 10 // 验证码有效时间为 10 分钟
+    }).then(function(){
+        // 调用成功
+    }, function(err){
+        // 调用失败
+    });
+    ```
+    ```cs
+    // 下面参数中的 10 表示验证码有效时间为 10 分钟
+    LCCloud.RequestSMSCodeAsync("18200008888","应用名称","某种操作",10).ContinueWith(t =>
+    {
+        if(!t.Result)
+        {
+            // 调用成功
+        }
+    });
+    ```
+    ```php
+    $options = [
     "name" => "应用名称",
     "op" => "某种操作",
     "ttl" => 10, // 验证码有效时间为 10 分钟
-  ];
-  SMS::requestSMSCode("18200008888", $options);
-  ```
-  ```python
-  from leancloud import cloud
-  options = {
+    ];
+    SMS::requestSMSCode("18200008888", $options);
+    ```
+    ```python
+    from leancloud import cloud
+    options = {
     "op": "某种操作",
     "ttl": 10  # 验证码有效时间为 10 分钟
-  }
-  cloud.request_sms_code("18200008888", sign="应用名称", params=options)
-  ```
-```dart
-try {
-//验证码有效时间为 10 分钟
-  await LCSMSClient.requestSMSCode('18200008888',
-      variables: {'name': '应用名称', 'ttl': 10, 'op': '某种操作'});
-} on LCException catch (e) {
-  print(e.message);
-}
-```
+    }
+    cloud.request_sms_code("18200008888", sign="应用名称", params=options)
+    ```
+    ```dart
+    try {
+    //验证码有效时间为 10 分钟
+    await LCSMSClient.requestSMSCode('18200008888',
+        variables: {'name': '应用名称', 'ttl': 10, 'op': '某种操作'});
+    } on LCException catch (e) {
+    print(e.message);
+    }
+    ```
+
 3. **用户收到短信，并且输入了验证码**  
   在进行下一步之前，我们建议先进行客户端验证（对有效性进行基本验证，例如长度、特殊字符等），这样就避免了错误的验证码被服务端驳回而产生的流量，以及与服务端沟通的时间，有助于提升用户体验。
   
@@ -355,7 +356,7 @@ try {
 文本短信验证码在到达率上有一定的风险。尽管根据我们长期得到的用户反馈，到达率已接近 100%，但是有些应用对时效性的要求极高，并且需要更好的安全性，所以我们也推出了语音短信验证码的服务，调用的方式如下：
 
 ```objc
-LCShortMessageRequestOptions *options = [[AVShortMessageRequestOptions alloc] init];
+LCShortMessageRequestOptions *options = [[LCShortMessageRequestOptions alloc] init];
 options.type = AVShortMessageTypeVoice;
 [AVSMS requestShortMessageForPhoneNumber:@"18200008888"
         options:options
@@ -701,7 +702,7 @@ try {
 并且模板名称为 `Order_Notice`，并且为已经拥有了一个审核通过的签名叫做「天天商城」，签名的名称叫做 `sign_BuyBuyBuy`，当模板通过审批后就可以调用如下代码发送这条通知类的短信：
 
 ```objc
-AVShortMessageRequestOptions *options = [[AVShortMessageRequestOptions alloc] init];
+LCShortMessageRequestOptions *options = [[LCShortMessageRequestOptions alloc] init];
 
 options.templateName = @"Order_Notice";
 options.signatureName = @"sign_BuyBuyBuy";
@@ -974,12 +975,12 @@ AV.Captcha.request({ width: 80, height: 30 });
 #### 获取图形验证码
 
 ```objc
-AVCaptchaRequestOptions *options = [[AVCaptchaRequestOptions alloc] init];
+LCCaptchaRequestOptions *options = [[LCCaptchaRequestOptions alloc] init];
 
 options.width = 100;
 options.height = 50;
 
-[AVCaptcha requestCaptchaWithOptions:options
+[LCCaptcha requestCaptchaWithOptions:options
                             callback:^(AVCaptchaDigest * _Nullable captchaDigest, NSError * _Nullable error) {
                                 /* URL string of captcha image. */
                                 NSString *url = captchaDigest.URLString;
@@ -1126,12 +1127,12 @@ try {
 如果校验成功，拿到返回的 `validate_token`，继续调用发送短信的接口：
 
 ```objc
-AVShortMessageRequestOptions *options = [[AVShortMessageRequestOptions alloc] init];
+LCShortMessageRequestOptions *options = [[LCShortMessageRequestOptions alloc] init];
 options.templateName = @"New_Series"; // 模板名称
 options.signatureName = @"sign_BuyBuyBuy"; // 签名名称
 options.validationToken = <#validationToken#>;
 
-[AVSMS requestShortMessageForPhoneNumber:@"18200008888"
+[LCSMS requestShortMessageForPhoneNumber:@"18200008888"
                                  options:options
                                 callback:^(BOOL succeeded, NSError * _Nullable error) {
                                     if (succeeded) {
