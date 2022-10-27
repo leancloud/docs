@@ -24,7 +24,7 @@
 
 ![image](images/client-engine/client-engine3.png)
 
-在这个流程中，在服务端运行的 MasterClient 是唯一拥有上帝视角的裁判。所有玩家都只与 MasterClient 交换信息，MasterClient 只会给客户端同步部分信息（比如只告诉 B A 出拳了，但出了什么未知）。游戏逻辑的运算（包括随机、胜负判定）以及最终结果的上报都在服务端进行。
+在这个流程中，在服务端运行的 MasterClient 是唯一拥有上帝视角的裁判。所有玩家都只与 MasterClient 交换信息，MasterClient 只会给客户端同步部分信息（比如只告诉 B「A 出拳了」，但出了什么未知）。游戏逻辑的运算（包括随机、胜负判定）以及最终结果的上报都在服务端进行。
 
 **Multiplayer 服务是基础。玩家客户端并不与 MasterClient 直接通信，图中的虚线表示消息仍然是通过 Multiplayer 服务转发的。**
 
