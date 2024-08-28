@@ -1,0 +1,2 @@
+build: yarn build --out-dir build-leancloud
+run: serve build-leancloud -c static.json -l ${LEANCLOUD_APP_PORT}
