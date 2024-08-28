@@ -18,7 +18,7 @@ yarn start --locale zh-hans
 
 ## 贡献
 
-我们欢迎所有 TapTap 用户以及公司同事修改文档或提交 issue 为我们贡献或者修正错误，TapTap 衷心感谢您的贡献。
+我们欢迎所有 LeanCloud 用户以及公司同事修改文档或提交 issue 为我们贡献或者修正错误，LeanCloud 衷心感谢您的贡献。
 
 **贡献方法及注意事项：**
 
@@ -32,17 +32,15 @@ yarn start --locale zh-hans
   * 插入配图、图表和 PPT 等，可参考下文详细介绍。
 * 预览文档。运行 `yarn` 命令安装所需要依赖，运行 `yarn start` 命令可以本地预览。
 * 预览没问题后，提交修改并发起 Pull Request，并指定 Reviewer。
-  * Reviewer 同意修改后，才可以合并 Pull Request。如果不知道该设置谁作为 Reviewer，可以指给技术支持同事（SXiaoXu、WatchMan-Wang、yuwenjian）。
-  * Pull Request 合并后，会自动发布上线。文档每隔半小时自动检测是否有更新，如果有更新会自动部署。
+  * Reviewer 同意修改后，才可以合并 Pull Request。
+  * Pull Request 合并后，会自动发布上线。
   * Pull Request 合并后，可删除当前分支。
-  * 可参考 [Git Commit 日志风格指南](https://open.leancloud.cn/git-commit-message/)
 * 文档规范可参考 [中文文案风格指南](https://blog.taptap.dev/pages/chinese-copywriting-guide)。
 
 ## 目录结构
 
 ```
 .
-├── .ci                                      多品牌、多节点构建相关配置
 ├── docs                                     中文文档
 │   ├── ddos.mdx                             隐藏文档
 │   └── sdk                                  顶栏菜单项
@@ -58,14 +56,11 @@ yarn start --locale zh-hans
 │           └── navbar.json                  顶栏菜单项翻译
 ├── img                                      文档配图
 ├── sidebars.js                              菜单配置
-├── src
-│   ├── docComponents                        自定义组件（用于文档内容，如多编程语言）
-│   ├── pages                                文档以外的页面（目前只包含首页）
-│   ├── styles                               一些共享样式
-│   └── theme                                自定义组件（用于文档内容以外的地方，如文档搜索）
-├── versioned_docs                           旧版文档内容
-├── versioned_sidebars                       旧版文档菜单配置
-└── versions.json                            历史版本配置
+└── src
+    ├── docComponents                        自定义组件（用于文档内容，如多编程语言）
+    ├── pages                                文档以外的页面（目前只包含首页）
+    ├── styles                               一些共享样式
+    └── theme                                自定义组件（用于文档内容以外的地方，如文档搜索）
 ```
 
 其中编辑人员常用的目录有：
@@ -257,61 +252,6 @@ import { OfficeDoc } from "/src/docComponents/doc";
 <OfficeDoc fileUrl="https://icepro.oss-cn-shanghai.aliyuncs.com/file/sample.ppt" />
 ```
 
-#### SDK 版本号
-
-SDK 版本号统一维护在 `/src/docComponents/sdkVersions.ts`。当 SDK 版本有更新时，只需在这里更新对应 SDK 的版本号，文档中所有引用这个版本号的地方就会跟着更新。
-
-如果一篇文档需要引用 SDK 版本号，需要先在开头引入前面提到的这个文件：
-
-```js
-import sdkVersions from "/src/docComponents/sdkVersions";
-```
-
-如果版本号会出现在代码块中，还需要额外引入 `CodeBlock`：
-
-```js
-import CodeBlock from "@theme/CodeBlock";
-```
-
-根据版本号出现的位置不同，引用的方法也略有不同。如果版本号出现在一般段落中（非代码块），需要先将这部分段落用 JSX 语法改写，然后在版本号出现的地方插值：
-
-```diff
-- - 华为（HMS) 'cn.leancloud:mixpush-hms:8.1.4'
-- - 小米 'cn.leancloud:mixpush-xiaomi:8.1.4'
-+ <ul>
-+   <li>华为（HMS) 'cn.leancloud:mixpush-hms:{sdkVersions.leancloud.java}'</li>
-+   <li>小米 'cn.leancloud:mixpush-xiaomi:{sdkVersions.leancloud.java}'</li>
-+ </ul>
-```
-
-如果版本号出现在代码块中，需要先将包裹代码块的 ` ``` ``` ` 用 ` <CodeBlock>{``}</CodeBlock> ` 替换，然后在版本号出现的地方插值。代码的语言可通过 `className` 传递给 `CodeBlock`：
-
-````diff
-- ```groovy
-- dependencies {
--   //混合推送需要的包
--   implementation 'cn.leancloud:mixpush-android:8.1.4'
--   //即时通信与推送需要的包
--   implementation 'cn.leancloud:realtime-android:8.1.4'
--   implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
--
--   implementation 'com.huawei.hms:push:4.0.2.300'
-- }
-- ```
-+ <CodeBlock className="groovy">
-+ {`dependencies {
-+   //混合推送需要的包
-+   implementation 'cn.leancloud:mixpush-android:${sdkVersions.leancloud.java}'
-+   //即时通信与推送需要的包
-+   implementation 'cn.leancloud:realtime-android:${sdkVersions.leancloud.java}'
-+   implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'\n
-+   implementation 'com.huawei.hms:push:4.0.2.300'
-+ }`}
-+ </CodeBlock>
-````
-
-注意：如果代码中有空行，需要替换成 `\n` 放在前一行结尾，否则会报错。
-
 ### 文档中的链接、配图、文件
 
 #### 链接
@@ -351,7 +291,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 ##### Tips
 
-- DC 后台的截图：可以用 Chrome 插件 GoFullPage 截图，之后再使用 Figma 完成敏感信息遮盖、标注等，最后导出图片。
+- 可以用 Chrome 插件 GoFullPage 截图，之后再使用 Figma 完成敏感信息遮盖、标注等，最后导出图片。
 - 一些需要绘制的图片：比如内嵌动态的很多图片，可以使用 UI/UX 同事的设计稿。
 - IDE 或编辑器界面的截图：底色参考配图规范，尽量展示完整的界面。
 
@@ -397,25 +337,6 @@ import CodeBlock from "@theme/CodeBlock";
   }
 }
 ```
-
-## 多品牌、多节点
-
-本项目为三个服务的文档提供了支持：
-
-- [TapTap 国内版](https://developer.taptap.cn/docs/)
-- [TapTap 海外版](https://developer.taptap.io/docs/)
-- [LeanCloud](https://docs.leancloud.cn/)
-
-这三个服务的文档内容各不相同，每个服务的文档都有一些它独有的页面。不同文档的配置也存在差异，比如 TapTap 国内版文档的默认语言是简体中文，而 TapTap 海外版文档的默认语言则是英文。同一篇文档中不同内容的显示与否也会由配置来决定。此外，LeanCloud 文档需要使用和 TapTap 文档不一样的配色风格。
-
-Docusaurus 自身并没有提供「从一个项目构建出不同版本」的功能。为实现该功能，我们在 `.ci` 目录下放置了两个构建脚本（`build-hk.sh` 和 `build-leancloud.sh`），它们会分别在 TapTap 海外版文档和 LeanCloud 文档的构建阶段被执行，将当前项目中的文档文件（也就是 TapTap 国内版用到的文件）改造成目标版本的文档所需的文件。你可以通过浏览这两个构建脚本来了解不同版本的文档相对于 TapTap 国内版的文档存在哪些差异。
-
-对于文档维护者来说，可以借助这两个脚本来控制不同版本之间的内容差异：
-
-- 加入 `docs` 和 `i18n` 的文档默认会出现在 TapTap 国内版和 TapTap 海外版的文档中，但不会出现在 LeanCloud 文档中。
-- 如果想在 TapTap 海外版文档中隐藏这篇文档，需要在 `build-hk.sh` 中使用 `rm` 命令移除相关文件。
-- 如果想在 LeanCloud 文档中显示这篇文档，需要在 `build-leancloud.sh` 中使用 `cp` 命令将相关文件复制到临时目录中。
-- `.ci` 目录中提供了名为 `hk` 和 `leancloud` 的两个目录，分别用于存放仅适用于 TapTap 海外版的文档和仅适用于 LeanCloud 的文档。如需添加仅适用于某个版本的内容，请将文件放入对应目录，并在构建脚本中借助 `cp` 命令将文件复制到合适的位置。
 
 ## 文档发布注意事项
 
