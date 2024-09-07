@@ -13,7 +13,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "optimg": "find img -name \"*.jpg\" -exec jpegoptim --max=90 {} \\; && find img -name \"*.jpeg\" -exec jpegoptim --max=90 {} \\; && find img -name \"*.png\" -exec optipng {} \\;"
+    "optimg": "find static/img -name \"*.jpg\" -exec jpegoptim --max=90 {} \\; && find static/img -name \"*.jpeg\" -exec jpegoptim --max=90 {} \\; && find static/img -name \"*.png\" -exec optipng {} \\;"
   },
   "dependencies": {
     "@docusaurus/core": "2.1.0",
