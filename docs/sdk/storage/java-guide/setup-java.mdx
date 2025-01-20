@@ -34,7 +34,7 @@ import Path from "/src/docComponents/path";
 如果是 Android 项目，使用这些包：
 
 <CodeBlock className="groovy">
-{`implementation 'com.taptap:lc-storage-android:${sdkVersions.leancloud.java}'
+{`implementation 'cn.leancloud:storage-android:${sdkVersions.leancloud.java}'
 implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'`}
 </CodeBlock>
 </TabItem>
@@ -43,8 +43,8 @@ implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'`}
 
 <CodeBlock className="xml">
   {`<dependency>
-    <groupId>com.taptap</groupId>
-    <artifactId>lc-storage-core</artifactId>
+    <groupId>cn.leancloud</groupId>
+    <artifactId>storage-core</artifactId>
     <version>${sdkVersions.leancloud.java}</version>
 </dependency>`}
 </CodeBlock>
@@ -54,7 +54,7 @@ implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'`}
 <TabItem value="ivy" label="Ivy">
 
 <CodeBlock className="xml">
-  {`<dependency org="com.taptap" name="lc-storage-core" rev="${sdkVersions.leancloud.java}" />`}
+  {`<dependency org="cn.leancloud" name="storage-core" rev="${sdkVersions.leancloud.java}" />`}
 </CodeBlock>
 
 </TabItem>
@@ -62,7 +62,7 @@ implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'`}
 <TabItem value="sbt" label="SBT">
 
 <CodeBlock className="scala">
-  {`libraryDependencies += "com.taptap" %% "lc-storage-core" % "${sdkVersions.leancloud.java}"`}
+  {`libraryDependencies += "cn.leancloud" %% "storage-core" % "${sdkVersions.leancloud.java}"`}
 </CodeBlock>
 
 </TabItem>
@@ -70,7 +70,7 @@ implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'`}
 <TabItem value="gradle" label="Gradle">
 
 <CodeBlock className="groovy">
-  {`implementation 'com.taptap:lc-storage-core:${sdkVersions.leancloud.java}'`}
+  {`implementation 'cn.leancloud:storage-core:${sdkVersions.leancloud.java}'`}
 </CodeBlock>
 
 </TabItem>
