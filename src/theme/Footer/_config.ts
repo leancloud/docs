@@ -154,7 +154,7 @@ export const getLicenceLinks = (
 
   const LICENCE_LINKS_LEANCLOUD_CN: LicenceLink[] = [
     {
-      label: "京 ICP 备 12025059-8",
+      label: "沪ICP备2025111189号-5",
       link: "https://beian.miit.gov.cn/",
     },
     {
@@ -162,8 +162,8 @@ export const getLicenceLinks = (
       link: "https://www.leancloud.cn/assets/ICP.182c7324.jpg",
     },
     {
-      label: "京公网安备 11010502036747 号",
-      link: "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502036747",
+      label: "沪公网安备 31010402335182 号",
+      link: "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010402335182",
       icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAFAElEQVQ4jU3Oy29cVwGA8e887mvuzHhmMmPHjqnrqe3YcUwcKE1NEFErlbCmbTZUQmyQWLJlU1ggwZolEjsWVAipqBJVI7BFaSgtj+JISRM3wY6TseMZj+15+N65j3NYVfT7A376BF/I2lvBxnu3Zz6913lxa6v9ghTmUpalje5xNJXnxglD1avVii1h9X++NFm8tbI69+eaClrLL90YfG6oL4I/+N715+7f3b++vrH1o9t3D68Vg36zGo7OzIwbd7JmlO9lhZOT7sQ/Pjm6aLPsoiNFXGmE7enmantjY8MCyP/fWdHafXr+4fb+K39af3h+8qwKXr8+xpXJmIWsw0LW5muVU75zrcTq5UC9896D2fsPDl7ZfdxaefO7NedzRwP0OzeXbr79szfe+t1nr/5rs9v85rU6P3zNY++dOwy3e+hGDYsgefqEYr3IGzdmEbbO+3/f/ka7fdQohwtz/c7f3irV1+5qgJ1Hn1741a//ufbxZtQslX29turT/2iHo/snKClI949BWGxqOGoNOVjfYW35HJ9sarXxYXthtzX49s/HpzrW/mRLWvvfSp72LlvJtLE45ZIU42FG9KiHTBIMYPMcm+YIrZFpwnB7QMmMGK8iciudYSwag+hwCa4VddS9uxj1tq96Om1orfA8gasMeZIjsGjfQYceQkryOGF0GmNGOY4A1xNoRxN4WX14snWpe7C8pE+HncU8HVwsF00FJFFsyR1JOBUyOEopL4xTnKkjHc3g8SHdJCaoe1jfZRiBRFEuRGMmOrgg0vzLOsv7Y47SohwqJIaDjmH/GL6yUqc/guJig+qFcyhX4UwERIMelVmf/dSj3U3J84xKSeI7rkjTZEIbI66GBfzJcaiNWT57Yri5njB/w6f0/ATdx22OP+iAAJMaiuerqCmf9/94yoNtyVjRMDUBgSvd3snBgh6cdOcdB6f5jGL6rGHzgeAvfx3x/P49vroa4vs++oyPFZB2I8Ren9t/6LO+eYbDUZWlpmD+WYcgkN7geO9FKfTku3HsnU6c9VheEsxOWUZGcq9tebQnOBoo+n3DsJ8xGAraXcFWK6GdukxOWJYXJc3nAlRQiLzg2Q+0lNKPIiulhea0YmUu5UlLcetknNYdhRMISmMGLQ3RQJKMfFqdOqfC58oCLDYFgStIIkuhVuhrAa4xjtCOz8w5y9cvZzxtZ8RZicddi0wM84Uc4Rqe9AStE403VuAZH15YsTSnfYQokGYFJNLVUhUeaqfQRitdLJlgvjniW1djEit4uKvA5Fxe1khtqNy3VHahXpVUwpTFWY9y0SMz5cyK4tAgO2I4vDO59e93fxz3Oy9bczQn6bnJ6QBrHJLUwXFylGMxOcSRIU0MrgMmTwlKZYQey6yo7gpZ+XBx7bWfyjC8sFefmPmF9sq/NXntURw3sLJGllukSjDWkmUSayWuawmLAoTFDcdIkyrRIGynsfv21NyVNxuN5j29s/ObajIcfN8LeEkr94w1DlkWksWKfucAi0VKjRACYzKMETheiOM1yKWLHaU+pn+pu/fRDXu49UstB47o94aVXjuqp6NhqJRFuwbtuITVkDQeAQZrDcootOejnAJpkpMbi1Q6VI57Vls52dOJ1rG7P0wj5/d5ymGa6itJHJ+zg9OKklkoVFDAaC1EJK21whrXmMTJVW6Ho1E6MFYeOdLfc133Y6OdjXLZHf4PbtNpPdh4oeYAAAAASUVORK5CYII=",
     },
   ];
