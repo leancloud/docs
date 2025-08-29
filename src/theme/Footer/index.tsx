@@ -14,7 +14,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 function getCopyrightNotice(brand: string): string {
   const year = new Date().getFullYear();
   const company =
-    brand === "leancloud" ? "美味书签（北京）信息技术有限公司" : "TapTap";
+    brand === "leancloud" ? "美味书签（上海）信息技术有限公司" : "TapTap";
   return `© ${year} ${company}`;
 }
 
