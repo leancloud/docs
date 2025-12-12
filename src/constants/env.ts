@@ -1,5 +1,5 @@
 export const BRAND: string = "leancloud";
-export const REGION: string = "cn";
+export const REGION: string = process.env.REGION || "cn";
 
 // Cloud Engine
 export const CLI_BINARY: string = BRAND === "tds" ? "tds" : "lean";
