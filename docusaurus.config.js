@@ -167,7 +167,24 @@ const config = {
       },
     }),
 
-  plugins: ["docusaurus-plugin-sass"],
+  plugins: [
+    "docusaurus-plugin-sass",
+    function envDefinePlugin() {
+      return {
+        name: "env-define-plugin",
+        configureWebpack() {
+          const webpack = require("webpack");
+          return {
+            plugins: [
+              new webpack.DefinePlugin({
+                "process.env.REGION": JSON.stringify(process.env.REGION || "cn"),
+              }),
+            ],
+          };
+        },
+      };
+    },
+  ],
 };
 
 module.exports = config;
