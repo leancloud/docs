@@ -1,6 +1,7 @@
 // @ts-check
 
-const PREVIEW = process.env.PREVIEW ?? "false";
+// REGION can be either "cn" or "global"
+const REGION = process.env.REGION || "cn";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -177,7 +178,7 @@ const config = {
           return {
             plugins: [
               new webpack.DefinePlugin({
-                "process.env.REGION": JSON.stringify(process.env.REGION || "cn"),
+                "process.env.REGION": JSON.stringify(REGION),
               }),
             ],
           };
