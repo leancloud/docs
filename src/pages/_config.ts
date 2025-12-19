@@ -84,6 +84,15 @@ export const getEntries = (brand: string, region: string): Entry[] => {
 
   const ENTRIES_LEANCLOUD: Entry[] = [
     {
+      title: "公告",
+      links: [
+        {
+          label: "查看更多",
+          to: "/sdk/announcements/sunset-export",
+        },
+      ],
+    },
+    {
       title: "控制台和账户",
       description: "LeanCloud 控制台使用指南",
       links: [
