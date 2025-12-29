@@ -88,7 +88,7 @@ export const getEntries = (brand: string, region: string): Entry[] => {
       links: [
         {
           label: "查看更多",
-          to: "/sdk/announcements/sunset-export",
+          to: "/sdk/announcements/sunset-announcement",
         },
       ],
     },
