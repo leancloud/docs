@@ -25,7 +25,7 @@ function Footer() {
           <section>
            <section className={styles.logo}>
               {/* @ts-ignore */}
-              <Logo noLabel reversed={BRAND === "leancloud"} />
+              <Logo noLink noLabel reversed={BRAND === "leancloud"} />
             </section> 
           </section>
 
