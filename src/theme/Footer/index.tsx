@@ -1,15 +1,10 @@
 import React from "react";
 import Link from "@docusaurus/Link";
-import Translate from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./styles.module.scss";
 import Logo from "@theme/Logo";
 import { BRAND, REGION } from "../../constants/env";
 import { getNavLinks, getLicenceLinks } from "./_config";
-import DiscordLogo from "./discord-mark-white.svg";
-import Arrow from "./arrow.svg";
-import TdsFooter from "./TdsFooter";
-import useBaseUrl from "@docusaurus/useBaseUrl";
 
 function getCopyrightNotice(brand: string): string {
   const year = new Date().getFullYear();
@@ -23,48 +18,15 @@ function Footer() {
     i18n: { currentLocale },
   } = useDocusaurusContext();
 
-  return  BRAND === 'tds' && REGION === 'cn' ? <TdsFooter /> :  (
+  return  (
     <footer className={styles.footer}>
       <div className={styles.stage}>
         <div>
           <section>
-            { REGION === 'global' ?<section className={styles.logo}>
-              {/* @ts-ignore */}
-              {
-                (currentLocale === "en" )?
-                <img src={useBaseUrl("/img/logo_en_footer.png")} width="200" height="30"></img>
-               :
-               <img src={useBaseUrl("/img/logo_zh_footer.png")} width="180" height="30"></img>
-              }
-             
-            </section>:<section className={styles.logo}>
+           <section className={styles.logo}>
               {/* @ts-ignore */}
               <Logo noLabel reversed={BRAND === "leancloud"} />
-            </section>}
-            
-
-            {BRAND === "tds" ? <section className={styles.discord}>
-              <a
-                href="https://discord.com/invite/xt3f3XpuQa"
-                target="_blank"
-                rel="noreferrer nofollow noopener"
-              >
-                <div>
-                  <span>
-                    <DiscordLogo />
-                    <span>
-                      <Translate
-                        id="tds-footer-来-Discord-和我们交流"
-                        description="from Footer"
-                      >
-                        来 Discord 和我们交流
-                      </Translate>
-                    </span>
-                  </span>
-                  <Arrow />
-                </div>
-              </a>
-            </section> : <></>}
+            </section> 
           </section>
 
           <section>
@@ -93,38 +55,6 @@ function Footer() {
             </section>
 
             <section className={styles.info}>
-              {BRAND === "tds" &&
-                (REGION === "cn" ? (
-                  <>
-                    <div>
-                      <Translate
-                        id="tds-footer-易玩（上海）网络科技有限公司"
-                        description="from Footer"
-                      >
-                        易玩（上海）网络科技有限公司
-                      </Translate>
-                    </div>
-                    <div>
-                      <Translate
-                        id="tds-footer-公司地址：上海市静安区灵石路 718 号 B1 北楼"
-                        description="from Footer"
-                      >
-                        公司地址：上海市静安区灵石路 718 号 B1 北楼
-                      </Translate>
-                    </div>
-                    <div>
-                      <Translate
-                        id="tds-footer-注册地址：上海市闵行区紫星路 588 号 2 幢 2122 室"
-                        description="from Footer"
-                      >
-                        注册地址：上海市闵行区紫星路 588 号 2 幢 2122 室
-                      </Translate>
-                    </div>
-                  </>
-                ) : (
-                  <div>TapTap Pte. Ltd.</div>
-                ))}
-
               <div>{getCopyrightNotice(BRAND)}</div>
             </section>
           </section>
