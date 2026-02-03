@@ -4,6 +4,8 @@ sidebar_label: 数据导出与迁移
 sidebar_position: 1
 ---
 
+import { Conditional } from "/src/docComponents/conditional";
+
 LeanCloud 服务将在 2027 年 1 月 12 日停服下线。为了帮助您顺利完成数据迁移，我们准备了这份数据的导出与迁移指南。
 
 ## 数据导出
@@ -71,11 +73,10 @@ Class](/sdk/storage/guide/rest/#遍历-class)。
 
 如果您在数据导出和迁移过程中遇到问题，可以通过工单联系我们。
 
+## 替代方案推荐
 
 <Conditional region="cn">
-<br />
 
-## 腾讯云 CloudBase
 
 我们推荐使用腾讯云 CloudBase 作为 LeanCloud 的替代方案。CloudBase 提供数据库、云函数、云存储、身份认证等与 LeanCloud
 类似的能力，并配备完整迁移指南及智能迁移脚本，支持自动数据格式转换。迁移详情请参考
@@ -85,6 +86,14 @@ Class](/sdk/storage/guide/rest/#遍历-class)。
 
 如遇兑换码领取和技术问题，可加群咨询：
 <img width="150" src="http://lc-OMMmeGjC.cn-n1.lcfile.com/yJnpL4loRXyhKTFLsQ2Ng6N6HoPDYzlb/cloudbase-qrcode.png" alt="cloudbase-group" />
+
+</Conditional>
+
+<Conditional region="global">
+
+作为全球性的云服务提供商，我们推荐使用 [Google Firebase](https://firebase.google.com/) 作为替代方案。如果考虑自建开源价格，那么我们推荐使用
+[Parse Platform](https://github.com/parse-community/parse-server) 自行搭建。
+
 
 </Conditional>
 
