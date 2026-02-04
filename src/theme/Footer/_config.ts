@@ -71,12 +71,12 @@ export const getNavLinks = (
       url: "https://www.leancloud.cn/pricing/index.html",
     },
     {
-      label: "下载",
-      url: "https://leancloud.cn/docs/sdk_down.html",
+      label: "快速开始",
+      url: "/sdk/start/guide/",
     },
     {
       label: "常见问题",
-      url: "https://leancloud.cn/docs/faq.html",
+      url: "/sdk/start/faq/",
     },
     {
       label: "技术支持",
@@ -84,20 +84,34 @@ export const getNavLinks = (
     },
     {
       label: "健康状态",
+      url: "https://status.leancloud.cn/",
+    },
+  ];
+  const NAV_LINKS_LEANCLOUD_GLOBAL: (NavLinkInternal | NavLinkExternal)[] = [
+    {
+      label: "Pricing",
+      url: "https://leancloud.app/pricing",
+    },
+    {
+      label: "Quick Start",
+      url: "/sdk/start/guide/",
+    },
+    {
+      label: "FAQ",
+      url: "/sdk/start/faq/",
+    },
+    {
+      label: "Support",
+      url: "https://ticket.leancloud.app",
+    },
+    {
+      label: "Status",
       url: "https://leancloudstatus.com/",
-    },
-    {
-      label: "社区",
-      url: "https://forum.leancloud.cn/",
-    },
-    {
-      label: "博客",
-      url: "https://leancloudblog.com/",
     },
   ];
 
   if (brand === "leancloud") {
-    return NAV_LINKS_LEANCLOUD_CN;
+    return region === "cn" ? NAV_LINKS_LEANCLOUD_CN : NAV_LINKS_LEANCLOUD_GLOBAL;
   } else {
     const NAV_LINKS = region === "cn" ? NAV_LINKS_TDS_CN : NAV_LINKS_TDS_GLOBAL;
     return NAV_LINKS.map((link, index) => ({
@@ -165,7 +179,11 @@ export const getLicenceLinks = (
   ];
 
   if (brand === "leancloud") {
-    return LICENCE_LINKS_LEANCLOUD_CN;
+    if (region === "cn") {
+      return LICENCE_LINKS_LEANCLOUD_CN;
+    } else {
+      return [];
+    }
   } else {
     if (region === "cn") {
       
