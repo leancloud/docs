@@ -6,10 +6,9 @@ import Logo from "@theme/Logo";
 import { BRAND, REGION } from "../../constants/env";
 import { getNavLinks, getLicenceLinks } from "./_config";
 
-function getCopyrightNotice(brand: string): string {
+function getCopyrightNotice(region: string): string {
   const year = new Date().getFullYear();
-  const company =
-    brand === "leancloud" ? "美味书签（上海）信息技术有限公司" : "TapTap";
+  const company = region === "cn" ? "美味书签（上海）信息技术有限公司" : "LeanCloud";
   return `© ${year} ${company}`;
 }
 
@@ -55,7 +54,7 @@ function Footer() {
             </section>
 
             <section className={styles.info}>
-              <div>{getCopyrightNotice(BRAND)}</div>
+              <div>{getCopyrightNotice(REGION)}</div>
             </section>
           </section>
         </div>
