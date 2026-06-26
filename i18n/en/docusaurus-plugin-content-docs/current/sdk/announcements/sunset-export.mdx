@@ -1,0 +1,99 @@
+---
+title: Data Export and Migration Guide
+sidebar_label: Data Export and Migration
+sidebar_position: 1
+---
+
+import { Conditional } from "/src/docComponents/conditional";
+
+LeanCloud services will be discontinued and taken offline on January 12, 2027. To help you complete your data migration smoothly, we have prepared this guide to exporting and migrating your data.
+
+## Data Export
+
+### Data Storage
+
+Structured data storage offers several export mechanisms. In the console, go to "Data Storage" > "Import/Export," where you can perform "Data Export" and "Backup Export" separately. Specifically:
+
+* Data Export supports filtering by time range and provides an export file in JSON format;
+* Backup Export provides a BSON-format file from that day's early-morning database backup, which can be imported directly into a MongoDB database with mongorestore.
+
+
+<div style={{ textAlign: 'center' }}>
+  <img width="70%" src="http://lc-OMMmeGjC.cn-n1.lcfile.com/HimVFVh7wqTSALvxkAqqINPpmMqA0ppV/storage-export.png" alt="storage - export" />
+</div>
+
+In addition, you can export for migration via the REST API. We recommend using the Scan interface for traversal export. Please refer to the documentation [Iterating Over a
+Class](/sdk/storage/guide/rest/#遍历-class).
+
+### Files
+
+File storage mainly consists of file metadata and file content. The file metadata is stored within structured data as the `_File` table, which you can export by referring to the [Data Storage](#data-storage) section above.
+
+After obtaining the file metadata, you can iterate over it to construct URLs in the form of the file domain `+ key`, and then download the file content.
+
+### Built-in Accounts
+
+Built-in accounts are stored within structured data as the `_User` table. They are exported in the same way as structured data storage; please refer to the section above.
+
+Note that the `password` field in the exported data is stored encrypted. For the encryption algorithm, please refer to the documentation [Encryption Algorithm for Exported User Data](/sdk/start/dashboard/#导出用户数据的加密算法).
+
+### Push Notifications
+
+Push notifications mainly consist of device information and push records. The device information is stored within structured data as the `_Installation` table, which you can export by referring to the [Data Storage](#data-storage) section above.
+
+Push records are retained only for the last 7 days and can be exported via the REST API. Please refer to [Querying Push Records](/sdk/push/guide/rest/#推送记录查询).
+
+### Instant Messaging
+
+Instant messaging mainly consists of conversation data and historical messages. The conversation data is stored within structured data as the `_Conversation` table, which you can export by referring to the [Data Storage](#data-storage) section above.
+
+Historical messages must be exported via the REST API. You can export [all historical messages in the app](/sdk/im/guide/rest/#查询应用内所有历史消息), or export the [historical messages of a specific conversation](/sdk/im/guide/rest/#查询历史消息-1).
+
+
+### Cloud Engine
+
+Cloud Engine builds images using standard container technology, so you can rebuild and deploy your application on another container cloud platform.
+
+### LeanDB Hosted Database
+
+In the instance panel of the console, click the "..." button to export and download a database backup.
+
+### SMS
+
+You will need to re-register your signatures and templates with another SMS service provider.
+
+### Leaderboards
+
+Leaderboard rankings can be archived through the console, after which you can download the archived CSV to export them.
+
+If you need a leaderboard's hot data, you can perform a traversal export via the REST API. Please refer to [Querying a Leaderboard](/sdk/leaderboard/guide/rest/#查询排行榜).
+
+## Technical Support
+
+If you encounter any problems during data export and migration, you can contact us via a support ticket.
+
+## Recommended Alternatives
+
+<Conditional region="cn">
+
+
+We recommend Tencent Cloud CloudBase as an alternative to LeanCloud. CloudBase offers capabilities similar to LeanCloud, including a database, cloud functions, cloud storage, and authentication, and it comes with a complete migration guide and intelligent migration scripts that support automatic data format conversion. For migration details, please refer to the
+[Complete Guide to Migrating from LeanCloud to CloudBase](https://docs.cloudbase.net/quick-start/migration/leancloud).
+
+Migrating users can use an exclusive promo code to claim free cloud resources, [click to claim](https://buy.cloud.tencent.com/lowcode?buyType=tcb).
+
+For issues with redeeming the code or technical questions, you can join the group for assistance:
+<img width="150" src="http://lc-OMMmeGjC.cn-n1.lcfile.com/yJnpL4loRXyhKTFLsQ2Ng6N6HoPDYzlb/cloudbase-qrcode.png" alt="cloudbase-group" />
+
+</Conditional>
+
+<Conditional region="global">
+
+We recommend [Google Firebase](https://firebase.google.com/) as your preferred alternative. If you prefer a self-hosted open-source solution to reduce costs, we recommend building and deploying [Parse Platform](https://github.com/parse-community/parse-server) yourself.
+
+
+</Conditional>
+
+---
+
+**Thank you again for your support of LeanCloud.**
