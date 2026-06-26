@@ -49,6 +49,10 @@
     "message": "Billboard",
     "description": "The label for category 公告系统 in sidebar sdk"
   },
+  "sidebar.sdk.category.公告": {
+    "message": "Announcements",
+    "description": "The label for category 公告 in sidebar sdk"
+  },
   "sidebar.sdk.category.排行榜": {
     "message": "Leaderboard",
     "description": "The label for category 排行榜 in sidebar sdk"
